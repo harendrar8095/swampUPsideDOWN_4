@@ -11,8 +11,11 @@ jobs:
       API_URL: "https://ctf.catch-the-frog.com"
     
     steps:
-    - name: Checkout code
+    - name: Checkout PR branch
       uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
         
     - name: healthcheck
       continue-on-error: true

